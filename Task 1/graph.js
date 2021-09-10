@@ -48,9 +48,6 @@
         total_pixel_count = 25 * 11
 
         scalefactor = 10 ** (m.toString().length)
-
-        
-         console.log("hi there");
         document.getElementById(ab + "scale").innerHTML = "Scale Factor  1 X " + 10 ** (m.toString().length - 1)
 
         for (i = 0; i < arr_value.length; i++) {
