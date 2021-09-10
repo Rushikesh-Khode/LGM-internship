@@ -86,7 +86,7 @@
             document.getElementById(ab+"anmbar"+(i+1)).setAttribute("to",height)
 
             bar.setAttribute("height",height)
-            console.log(arr[i],"==",y,height)
+            console.log(arr_value[i],"==",y,"  ",height)
             if(y+height>=350) location.reload()
            
             document.getElementById(ab + "titleb" + (i + 1)).innerHTML = "No Cases : " + arr_value[i]
