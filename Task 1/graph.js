@@ -124,7 +124,7 @@
         .then(result => getJson(result))
         .catch(error =>error_alert());
         function error_alert(){
-            alert("Not Able To Fetch Data Check Your Internet Connection")
+            alert("Not Able To Fetch Data Check Your Internet Connection Or Try To Reload")
           
         }
 
