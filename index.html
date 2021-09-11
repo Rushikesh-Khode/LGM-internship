@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="#" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+
+            background-color: rgb(76, 49, 197);
+            color: whitesmoke;
+            width: fit-content;
+            border-radius: 10px;
+            text-align: center;
+
+
+        }
+
+        .title {
+
+            background-color: rgb(76, 49, 197);
+            color: whitesmoke;
+            width: 100%;
+            font-size: 3.2vw;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 5px;
+            text-align: center;
+
+
+
+
+
+        }
+
+        img {
+            height: 50px;
+            float: right;
+        }
+
+        rect:hover {
+
+            stroke: rgb(0, 4, 248);
+            stroke-width: 3px;
+
+        }
+
+        line {
+            stroke: rgb(129, 180, 212);
+
+        }
+
+        /* text {
+            fill: rgb(8, 0, 85);
+        } */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        marquee {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body id="body">
+  
+    <h2 style="width: 100vw;text-align: center;"> COVID-19 Data Visualizer </h2>
+    <input type="checkbox" value="DT"style="float:right;width:1.5vw;height: 1.5vh;" onchange="darkTheme()" />
+    <label for="DT" style="float: right;font-size: 1.2vw;">Dark Theme</label>
+
+    <marquee direction="right" align="center" id="marquee" scrollamount="12">Data Updated Every 24Hr</marquee>
+
+    <table align="center" style="width:10vw;">
+
+
+
+
+        <tr>
+            <td>
+                <h2 align="center">COVID-19 Cases In India (Total)</h2>
+                <svg width="350" height="350"
+                    style="display:none;margin:auto ;border-radius: 5px;background-color:aliceblue;border: 2px solid rgb(0, 0, 250);"
+                    id="itbase" class="animate">
+                    <text x="20" y="348" id="ittext1">Active</text>
+                    <text x="100" y="348" id="ittext2">Cases</text>
+                    <text x="180" y="348" id="ittext3">Deaths</text>
+                    <text x="260" y="348" id="ittext4">Recovered</text>
+
+                    <animate attributeName="opacity" dur="1s" keyTimes="0;1" values="0;1" repeatCount="indifinite" />
+
+                    <text x="1" id="it10">10-</text>
+                    <text x="2" id="it9">9-</text>
+                    <text x="2" id="it8">8-</text>
+                    <text x="2" id="it7">7-</text>
+                    <text x="2" id="it6">6-</text>
+                    <text x="2" id="it5">5-</text>
+                    <text x="2" id="it4">4-</text>
+                    <text x="2" id="it3">3-</text>
+                    <text x="2" id="it2">2-</text>
+                    <text x="2" id="it1">1-</text>
+                    <text x="2" id="it0">0-</text>
+
+                    <line x1="10" x2="350" id="itline1" />
+                    <line x1="10" x2="350" id="itline2" />
+                    <line x1="10" x2="350" id="itline3" />
+                    <line x1="10" x2="350" id="itline4" />
+                    <line x1="10" x2="350" id="itline5" />
+                    <line x1="10" x2="350" id="itline6" />
+                    <line x1="10" x2="350" id="itline7" />
+                    <line x1="10" x2="350" id="itline8" />
+                    <line x1="10" x2="350" id="itline9" />
+                    <line x1="10" x2="350" id="itline10" />
+                    <line x1="15" x2="350" id="itline11" />
+
+
+
+
+
+
+                    <rect x="20" width="50" id="itbar1">
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="itanmbar1"
+                            repeatCount="indifinite" />
+
+                        <title id="ittitleb1"></title>
+
+                    </rect>
+
+                    <rect x="100" width="50" id="itbar2">
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="itanmbar2" />
+
+
+                        <title id="ittitleb2"></title>
+                    </rect>
+
+                    <rect x="180" width="50" id="itbar3">
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="itanmbar3" />
+
+                        <title id="ittitleb3"></title>
+                    </rect>
+
+                    <rect x="260" width="50" id="itbar4">
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="itanmbar4" />
+
+                        <title id="ittitleb4"></title>
+                    </rect>
+
+
+                    <rect x=210 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
+                    <text x=230 y="15" style="font-size: smaller;" id="itpt1">No. Of Cases(+ value)</text>
+
+                    <rect x=210 y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
+                    <text x=230 y="30" style="font-size: smaller;" id="itpt2">No. Of Cases(- value)</text>
+                    <text x=0 y=15 id="itscale"></text>
+
+
+
+                </svg>
+            </td>
+
+
+        </tr>
+        <tr>
+            <td>
+                <h2 align="center">COVID-19 Cases In India (Today)</h2>
+                <svg width="350" height="350"
+                    style="display:none;margin:auto ;border-radius: 5px;background-color:aliceblue;border: 2px solid blue;"
+                    id="ittbase" class="animate">
+                    <text x="20" y="348" id="itttext1">Active</text>
+                    <text x="100" y="348" id="itttext2">Cases</text>
+                    <text x="180" y="348" id="itttext3">Deaths</text>
+                    <text x="260" y="348" id="itttext4">Recovered</text>
+
+                    <animate attributeName="opacity" dur="1s" keyTimes="0;1" values="0;1" repeatCount="indifinite" />
+
+                    <text x="1" id="itt10">10-</text>
+                    <text x="2" id="itt9">9-</text>
+                    <text x="2" id="itt8">8-</text>
+                    <text x="2" id="itt7">7-</text>
+                    <text x="2" id="itt6">6-</text>
+                    <text x="2" id="itt5">5-</text>
+                    <text x="2" id="itt4">4-</text>
+                    <text x="2" id="itt3">3-</text>
+                    <text x="2" id="itt2">2-</text>
+                    <text x="2" id="itt1">1-</text>
+                    <text x="2" id="itt0">0-</text>
+
+                    <line x1="10" x2="350" id="ittline1" />
+                    <line x1="10" x2="350" id="ittline2" />
+                    <line x1="10" x2="350" id="ittline3" />
+                    <line x1="10" x2="350" id="ittline4" />
+                    <line x1="10" x2="350" id="ittline5" />
+                    <line x1="10" x2="350" id="ittline6" />
+                    <line x1="10" x2="350" id="ittline7" />
+                    <line x1="10" x2="350" id="ittline8" />
+                    <line x1="10" x2="350" id="ittline9" />
+                    <line x1="10" x2="350" id="ittline10" />
+                    <line x1="15" x2="350" id="ittline11" />
+
+
+
+
+
+
+                    <rect x="20" width="50" id="ittbar1">
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="ittanmbar1" />
+
+                        <title id="itttitleb1"></title>
+
+                    </rect>
+                    <rect x="100" width="50" id="ittbar2" class="rectangle">
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="ittanmbar2" />
+
+                        <title id="itttitleb2"></title>
+                    </rect>
+                    <rect x="180" width="50" id="ittbar3" class="rectangle">
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="ittanmbar3" />
+
+                        <title id="itttitleb3"></title>
+                    </rect>
+                    <rect x="260" width="50" id="ittbar4" class="rectangle">
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="ittanmbar4" />
+
+                        <title id="itttitleb4"></title>
+                    </rect>
+
+
+                    <rect x=210 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
+                    <text x=230 y="15" style="font-size: smaller;" id="ittpt1">No. Of Cases(+ value)</text>
+
+                    <rect x=210 y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
+                    <text x=230 y="30" style="font-size: smaller;" id="ittpt2">No. Of Cases(- value)</text>
+
+                    <text x=0 y=15 id="ittscale"></text>
+
+
+
+                </svg>
+
+            </td>
+        </tr>
+    </table>
+
+
+
+    <table align="center">
+        <tr>
+            <td colspan="2">
+                <h2 align="center">COVID-19 Cases State Wise In India </h2>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"> <select name="" id="select_state" onchange="show_data_state()"
+                    style="background-color: aliceblue; height: 30px; border-radius: 5px;"></select></td>
+            </tr>
+            <tr>
+            <td align="center"> <select name="" id="select_details" onchange="show_data_state_details()"
+                    style="background-color: aliceblue;height: 30px; border-radius: 5px;">
+                    <option value="total" align="center">Total</option>
+                    <option value="today" align="center">Today</option>
+                </select></td>
+        </tr>
+
+        <tr></tr>
+        <tr>
+            <td colspan="2"  align="center">
+                <div id="holder">
+                    <svg width="350" height="350"
+                        style="display:none;margin:auto ;background-color:aliceblue;border-radius: 5px;border: 2px solid rgb(0, 0, 250);"
+                        id="base">
+                        <text x="20" y="348" id="text1">Active</text>
+                        <text x="100" y="348" id="text2">Cases</text>
+                        <text x="180" y="348" id="text3">Deaths</text>
+                        <text x="260" y="348" id="text4">Recovered</text>
+
+                        <animate attributeName="opacity" dur="0.5s" keyTimes="0;1" values="0;1"
+                            repeatCount="indifinite" />
+
+                        <text x="1" id="10">10-</text>
+                        <text x="2" id="9">9-</text>
+                        <text x="2" id="8">8-</text>
+                        <text x="2" id="7">7-</text>
+                        <text x="2" id="6">6-</text>
+                        <text x="2" id="5">5-</text>
+                        <text x="2" id="4">4-</text>
+                        <text x="2" id="3">3-</text>
+                        <text x="2" id="2">2-</text>
+                        <text x="2" id="1">1-</text>
+                        <text x="2" id="0">0-</text>
+
+                        <line x1="10" x2="350" id="line1" />
+                        <line x1="10" x2="350" id="line2" />
+                        <line x1="10" x2="350" id="line3" />
+                        <line x1="10" x2="350" id="line4" />
+                        <line x1="10" x2="350" id="line5" />
+                        <line x1="10" x2="350" id="line6" />
+                        <line x1="10" x2="350" id="line7" />
+                        <line x1="10" x2="350" id="line8" />
+                        <line x1="10" x2="350" id="line9" />
+                        <line x1="10" x2="350" id="line10" />
+                        <line x1="15" x2="350" id="line11" />
+
+
+
+
+
+
+                        <rect x="20" width="50" id="bar1">
+                            <animate attributeName="height" from="0" to="0" dur="0.5s" fill="freeze" id="anmbar1"
+                                repeatCount="indifinite" />
+
+                            <title id="titleb1"></title>
+                        </rect>
+
+                        <rect x="100" width="50" id="bar2" class="rectangle">
+                            <animate attributeName="height" from="0" to="0" dur="0.5s" fill="freeze" id="anmbar2"
+                                repeatCount="indifinite" />
+
+                            <title id="titleb2"></title>
+                        </rect>
+
+                        <rect x="180" width="50" id="bar3" class="rectangle">
+                            <animate attributeName="height" from="0" to="0" dur="0.5s" fill="freeze" id="anmbar3"
+                                repeatCount="indifinite" />
+
+                            <title id="titleb3"></title>
+                        </rect>
+
+                        <rect x="260" width="50" id="bar4" class="rectangle">
+                            <animate attributeName="height" from="0" to="0" dur="0.5s" fill="freeze" id="anmbar4"
+                                repeatCount="indifinite" />
+
+                            <title id="titleb4"></title>
+                        </rect>
+
+
+                        <rect x=210 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
+                        <text x=230 y="15" style="font-size: smaller;" id='pt1'>No. Of Cases(+ value)</text>
+
+                        <rect x="210" y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
+                        <text x=230 y="30" style="font-size: smaller;" id="pt2">No. Of Cases(-value)</text>
+                        <text x=0 y=15 id="scale"></text>
+
+
+
+                    </svg>
+                </div>
+            </td>
+        <tr>
+    </table>
+
+
+
+</body>
+
+<script src="graph.js"></script>
+
+</html>
