@@ -13,11 +13,11 @@
 
             background-color: rgb(76, 49, 197);
             color: whitesmoke;
-            width: fit-content;
+            width: fit-content+10px;
             border-radius: 10px;
             text-align: center;
-
             height:5vh;
+            font-size: auto;
 
         }
 
@@ -69,7 +69,7 @@
     </style>
 </head>
 
-<body id="body">
+<body id="body" >
   
     <h2 style="width: 100vw;text-align: center;"> COVID-19 Data Visualizer </h2>
     <input type="checkbox" value="DT"style="float:right;width:1.5vw;height: 1.5vh;" onchange="darkTheme()" />
@@ -125,8 +125,7 @@
 
 
                     <rect x="20" width="50" id="itbar1">
-                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="itanmbar1"
-                            repeatCount="indifinite" />
+                        <animate attributeName="height" from="0" to="100" dur="0.5s" fill="freeze" id="itanmbar1"/>
 
                         <title id="ittitleb1"></title>
 
