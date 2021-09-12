@@ -28,7 +28,7 @@
 
     function createGraph(arr_value, ab = "") {
 
-        console.log(arr_value)
+        // console.log(arr_value)
         document.getElementById(ab + "base").style.display = "block";
        
 
@@ -73,6 +73,9 @@
             height = (base - y)+0.7
 
             bar = document.getElementById(ab + "bar" + (i + 1))
+
+
+          
             
             if(isred){
             bar.setAttribute("fill","red")
@@ -86,16 +89,17 @@
             bar.setAttribute("y", y)
 
            
-
-            document.getElementById(ab+"anmbar"+(i+1)).setAttribute("to",height)
+        if(ab=="")
+        document.getElementById(ab+"anmbar"+(i+1)).setAttribute("to",height)
 
             bar.setAttribute("height",height)
 
-            console.log(arr_value[i],"==",y," ",height);
+            // console.log(arr_value[i],"==",y," ",height);
        
            
            
-            document.getElementById(ab + "titleb" + (i + 1)).innerHTML = "No Cases : " + arr_value[i]
+            document.getElementById(ab + "titleb" + (i + 1)).innerHTML = "No Cases : " + arr_value[i];
+          
 
         }
 
@@ -125,9 +129,10 @@
     fetch("https://disease.sh/v3/covid-19/gov/india", requestOptions)
         .then(response => response.text())
         .then(result => getJson(result))
-        .catch(error =>error_alert());
-        function error_alert(){
+        .catch(error =>error_alert(error));
+        function error_alert(error){
             alert("Not Able To Fetch Data Check Your Internet Connection")
+            console.log(error)
           
         }
 
@@ -223,9 +228,13 @@
                 }
 
             }
-            createGraph(arr_value)
+        
+        createGraph(arr_value)
 
-           
+              
+        element= document.getElementById("base");
+        element.scrollIntoView();
+        console.log("scrolling")
 
         }
         else {
