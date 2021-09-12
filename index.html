@@ -9,15 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+      body{
+            margin: 0;
+        }
         h2 {
 
             background-color: rgb(76, 49, 197);
             color: whitesmoke;
-            width: fit-content+10px;
+            width:100%;
             border-radius: 10px;
             text-align: center;
-            height:5vh;
-            font-size: auto;
+            align-self: center;
+        
+            font-size: 1.3rem;
 
         }
 
@@ -26,9 +30,9 @@
             background-color: rgb(76, 49, 197);
             color: whitesmoke;
             width: 100%;
-            font-size: 3.2vw;
+            font-size: 1.5rem;
             font-weight: bold;
-            border-radius: 10px;
+            border-radius: 10px 0 0 10px;
             padding: 5px;
             text-align: center;
 
@@ -66,14 +70,59 @@
         marquee {
             color: blue;
         }
+        li{
+            display: inline;
+        }
+        .container{
+            display:flex;
+            width:100%;
+        }
+
+        .dkmode{
+            display:flex;
+            width:20%;
+            background-color:red;
+            color:white;
+            align-items: center;
+            border-radius: 0 10px 10px 0;
+           
+           
+
+            
+        }
+
+
+        .checkbox-round {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.checkbox-round:checked {
+    background-color: black;
+}
     </style>
 </head>
 
 <body id="body" >
   
-    <h2 style="width: 100vw;text-align: center;"> COVID-19 Data Visualizer </h2>
-    <input type="checkbox" value="DT"style="float:right;width:1.5vw;height: 1.5vh;" onchange="darkTheme()" />
-    <label for="DT" style="float: right;font-size: 1.2vw;">Dark Theme</label>
+    <Nav style="display: flex;width: 100%;">
+      <div class="container">
+          <div class="title">COVID-19 Data Visualizer </div>
+       
+       
+        <div class="dkmode"><input class="checkbox-round" type="checkbox" value="DT"onchange="darkTheme()" />
+            <label for="DT" style="font-size: 1rem;">Dark Theme</label></div>
+     </div>  
+</Nav>
+    
 
     <marquee direction="right" align="center" id="marquee" scrollamount="12">Data Updated Every 24Hr</marquee>
 
@@ -147,11 +196,11 @@
                     </rect>
 
 
-                    <rect x=210 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
-                    <text x=230 y="15" style="font-size: smaller;" id="itpt1">No. Of Cases(+ value)</text>
+                    <rect x=200 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
+                    <text x=215 y="15" style="font-size: smaller;" id="itpt1">No. Of Cases(+ value)</text>
 
-                    <rect x=210 y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
-                    <text x=230 y="30" style="font-size: smaller;" id="itpt2">No. Of Cases(- value)</text>
+                    <rect x=200 y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
+                    <text x=215 y="30" style="font-size: smaller;" id="itpt2">No. Of Cases(- value)</text>
                     <text x=0 y=15 id="itscale"></text>
 
 
@@ -222,11 +271,11 @@
                     </rect>
 
 
-                    <rect x=210 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
-                    <text x=230 y="15" style="font-size: smaller;" id="ittpt1">No. Of Cases(+ value)</text>
+                    <rect x=200 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
+                    <text x=215 y="15" style="font-size: smaller;" id="ittpt1">No. Of Cases(+ value)</text>
 
-                    <rect x=210 y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
-                    <text x=230 y="30" style="font-size: smaller;" id="ittpt2">No. Of Cases(- value)</text>
+                    <rect x=200 y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
+                    <text x=215 y="30" style="font-size: smaller;" id="ittpt2">No. Of Cases(- value)</text>
 
                     <text x=0 y=15 id="ittscale"></text>
 
@@ -241,13 +290,16 @@
 
 
     <table align="center">
+       
         <tr>
-            <td colspan="2">
-                <h2 align="center">COVID-19 Cases State Wise In India </h2>
-            </td>
+            <td style="width: 100%;">
+            <h2 align="center">COVID-19 Cases State Wise In India </h2>
+        </td>
         </tr>
         <tr>
-            <td align="center"> <select name="" id="select_state" onchange="show_data_state()"
+            <td align="center"> 
+                
+                <select name="" id="select_state" onchange="show_data_state()"
                     style="background-color: aliceblue; height: 30px; border-radius: 5px;"></select></td>
             </tr>
             <tr>
@@ -331,11 +383,11 @@
                         </rect>
 
 
-                        <rect x=210 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
-                        <text x=230 y="15" style="font-size: smaller;" id='pt1'>No. Of Cases(+ value)</text>
+                        <rect x=200 y="5" width="10" height="10" style="fill:rgb(0,0,255)" />
+                        <text x=215 y="15" style="font-size: smaller;" id='pt1'>No. Of Cases(+ value)</text>
 
-                        <rect x="210" y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
-                        <text x=230 y="30" style="font-size: smaller;" id="pt2">No. Of Cases(-value)</text>
+                        <rect x="200" y="20" width="10" height="10" style="fill:rgb(255, 0, 0)" />
+                        <text x=215 y="30" style="font-size: smaller;" id="pt2">No. Of Cases(-value)</text>
                         <text x=0 y=15 id="scale"></text>
 
 

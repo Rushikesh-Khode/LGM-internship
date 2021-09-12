@@ -4,7 +4,7 @@
     const base = 320;
 
     darkmode=false;
-    idd=["base","body","select_state","select_details"]
+    idd=["base","select_state","select_details"]
     idw=["text1","text2","text3","text4","1","2","3","4","5","6","7","8","9","10","0","pt1","pt2","scale"]
 
 
@@ -248,10 +248,11 @@ function darkTheme(){
     if(!darkmode){
    
         document.getElementById("marquee").style.color="white"
+        document.getElementById("body").style.backgroundColor="black"
         for(var i in idd)
         {
             console.log(idd[i]);
-            
+          
             document.getElementById(idd[i]).style.backgroundColor="black"
             if(i==0){
             document.getElementById(idd[i]).style.backgroundColor="black"
@@ -279,12 +280,14 @@ function darkTheme(){
        
         console.log("white theme")
         document.getElementById("marquee").style.color="blue"
+        
+        document.getElementById("body").style.backgroundColor="white"
 
         for(var i in idd)
         {
             console.log(idd[i]);
             
-            document.getElementById(idd[i]).style.backgroundColor="aliceblue"
+            document.getElementById(idd[i]).style.backgroundColor="white"
             if(i==0){
             document.getElementById(idd[i]).style.backgroundColor="aliceblue"
             document.getElementById("it"+idd[i]).style.backgroundColor="aliceblue"
