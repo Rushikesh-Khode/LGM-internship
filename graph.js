@@ -1,8 +1,8 @@
-
+// imported key for api to make it diployment ready
 
 
     const base = 320;
-
+    const key ="qsdfvbnm456nwe6r87ejnsjdkasdk"
     darkmode=false;
     idd=["base","select_state","select_details"]
     idw=["text1","text2","text3","text4","1","2","3","4","5","6","7","8","9","10","0","pt1","pt2","scale"]
@@ -310,3 +310,4 @@ function darkTheme(){
         darkmode=false
     }
 }
+
